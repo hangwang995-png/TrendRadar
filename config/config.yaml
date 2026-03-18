@@ -104,7 +104,7 @@ rss:
   freshness_filter:
     enabled: true                     # 是否启用新鲜度过滤（默认启用）
 
-    max_age_days: 1                   # 最大文章年龄（天）
+    max_age_days: 3                   # 最大文章年龄（天）
                                       # - 正整数：只推送 N 天内的文章
                                       # - 0：禁用过滤，推送所有文章
 
@@ -112,19 +112,18 @@ rss:
   # - 不配置：使用全局 freshness_filter.max_age_days（默认 3 天）
   # - 正整数：覆盖全局设置，只推送此天数内的文章
   # - 0：禁用此频道的新鲜度过滤，推送所有文章
-  feeds:
-   feeds:
+ feeds:
   - id: "openai-news"
     name: "OpenAI News"
     url: "https://openai.com/blog/rss.xml"
 
-  - id: "google-deepmind"
+  - id: "deepmind-news"
     name: "Google DeepMind"
     url: "https://deepmind.google/blog/rss.xml"
 
-  - id: "google-ai"
-    name: "Google AI"
-    url: "https://blog.google/innovation-and-ai/technology/ai/rss/"
+  - id: "verge-ai"
+    name: "The Verge AI"
+    url: "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
 
   - id: "nvidia-blog"
     name: "NVIDIA Blog"
@@ -142,6 +141,10 @@ rss:
   - id: "npr-world"
     name: "NPR World"
     url: "https://feeds.npr.org/1004/rss.xml"
+
+  - id: "aljazeera"
+    name: "Al Jazeera"
+    url: "https://www.aljazeera.com/xml/rss/all.xml"
 
     # 自定义源示例
     # - id: "custom-feed"
@@ -267,16 +270,19 @@ display:
   #   1. 在此列表中
   #   2. 下方 regions 中对应开关为 true
   region_order:
-    - new_items                           # 1️⃣ 新增热点区域
-    - hotlist                             # 2️⃣ 热榜区域（关键词匹配 / AI 智能筛选）
-    - rss                                 # 3️⃣ RSS 订阅区域
-    - standalone                          # 4️⃣ 独立展示区
-    - ai_analysis                         # 5️⃣ AI 分析区域
+    - standalone
+    - rss
+    - ai_analysis
+    # - new_items                           # 1️⃣ 新增热点区域
+    # - hotlist                             # 2️⃣ 热榜区域（关键词匹配 / AI 智能筛选）
+    # - rss                                 # 3️⃣ RSS 订阅区域
+    # - standalone                          # 4️⃣ 独立展示区
+    # - ai_analysis                         # 5️⃣ AI 分析区域
 
   # 推送区域开关
   # 控制各区域是否启用（配合 region_order 使用）
   regions:
-    hotlist: true                     # 热榜区域（关键词匹配 / AI 智能筛选）
+    hotlist: false                     # 热榜区域（关键词匹配 / AI 智能筛选）
     new_items: false                   # 新增热点区域（含热榜新增 + RSS 新增）
                                       # 注：热点词汇统计中的新增标记🆕不受此配置影响
 
@@ -284,7 +290,7 @@ display:
                                       # 开启后将对 RSS 进行关键词分析并在通知中展示
                                       # 关闭后跳过分析，但独立展示区不受影响
 
-    standalone: false                 # 独立展示区（完整热榜/RSS，不受关键词过滤）
+    standalone: true                 # 独立展示区（完整热榜/RSS，不受关键词过滤）
     ai_analysis: true                 # AI 分析区域
 
   # 📋 独立展示区配置
@@ -294,9 +300,9 @@ display:
   #   - AI 分析：由 ai_analysis.include_standalone 开关控制，将完整数据送入 AI 做深度分析
   # 两者共享此处的平台/RSS 配置，但开关互相独立（可只开 AI 分析、不推送展示）
   standalone:
-    platforms: ["zhihu", "wallstreetcn-hot"]     # 热榜平台 ID 列表（如 ["zhihu", "weibo"]）
-    rss_feeds: []                     # RSS 源 ID 列表（如 ["hacker-news"]）
-    max_items: 20                     # 每个源最多展示条数（0=不限制）
+    platforms: []     # 热榜平台 ID 列表（如 ["zhihu", "weibo"]）
+    rss_feeds: ["bbc-world", "npr-world", "openai-news", "bwf-news"]                     # RSS 源 ID 列表（如 ["hacker-news"]）
+    max_items: 5                     # 每个源最多展示条数（0=不限制）
 
 
 # ===============================================================
