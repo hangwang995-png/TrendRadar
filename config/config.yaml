@@ -139,7 +139,7 @@ ai:
   api_base: ""
   timeout: 120
   temperature: 1.0
-  max_tokens: 2000
+  max_tokens: 1000
   num_retries: 1
   fallback_models: []
 
@@ -148,7 +148,7 @@ ai_analysis:
   language: "Chinese"
   prompt_file: "ai_analysis_prompt.txt"
   mode: "current"
-  max_news_for_analysis: 12
+  max_news_for_analysis: 5
   include_rss: false
   include_standalone: false
   include_rank_timeline: false
