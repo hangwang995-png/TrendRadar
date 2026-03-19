@@ -147,14 +147,15 @@ storage:
     days: 7
 
 ai:
-  model: "gemini/gemini-2.5-flash"
+  model: "openai/openrouter/free"
   api_key: ""
   api_base: ""
   timeout: 120
-  temperature: 1.0
+  temperature: 0.2
   max_tokens: 2000
-  num_retries: 1
-  fallback_models: []
+  num_retries: 2
+  fallback_models:
+    - "openai/qwen/qwen3-next-80b-a3b-instruct:free"
 
 ai_analysis:
   enabled: true
