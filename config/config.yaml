@@ -148,7 +148,7 @@ ai_analysis:
   language: "Chinese"
   prompt_file: "ai_analysis_prompt.txt"
   mode: "current"
-  max_news_for_analysis: 3
+  max_news_for_analysis: 1
   include_rss: false
   include_standalone: false
   include_rank_timeline: false
