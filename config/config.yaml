@@ -18,28 +18,32 @@ rss:
   enabled: true
   freshness_filter:
     enabled: true
-    max_age_days: 2
+    max_age_days: 3
   feeds:
-    - id: "hacker-news"
-      name: "Hacker News"
-      url: "https://hnrss.org/frontpage"
+    - id: "mit-ai-news"
+      name: "MIT News - Artificial Intelligence"
+      url: "https://news.mit.edu/rss/topic/artificial-intelligence2"
+      max_age_days: 5
 
-    - id: "npr-news"
-      name: "NPR News"
-      url: "https://feeds.npr.org/1001/rss.xml"
+    - id: "arxiv-cs-ai"
+      name: "arXiv cs.AI"
+      url: "https://arxiv.org/rss/cs.AI"
+      max_age_days: 7
 
-    - id: "the-verge"
-      name: "The Verge"
-      url: "https://www.theverge.com/rss/front-page/index.xml"
+    - id: "microsoft-ai"
+      name: "Microsoft News - AI"
+      url: "https://news.microsoft.com/source/tag/ai/feed/"
+      max_age_days: 4
 
-    - id: "ars-technica"
-      name: "Ars Technica"
-      url: "https://arstechnica.com/index.ars/feed/"
-
-    - id: "mit-news"
-      name: "MIT News"
-      url: "https://news.mit.edu/rss/feed"
+    - id: "mit-technology-review"
+      name: "MIT Technology Review"
+      url: "https://www.technologyreview.com/feed/"
       max_age_days: 3
+
+    - id: "register-ai-ml"
+      name: "The Register - AI/ML"
+      url: "https://www.theregister.com/software/ai_ml/headlines.atom"
+      max_age_days: 2
 
 report:
   mode: "daily"
