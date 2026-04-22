@@ -18,39 +18,44 @@ rss:
   enabled: true
   freshness_filter:
     enabled: true
-    max_age_days: 3
+    max_age_days: 4
   feeds:
-    - id: "mit-ai-news"
-      name: "MIT News - Artificial Intelligence"
-      url: "https://news.mit.edu/rss/topic/artificial-intelligence2"
-      max_age_days: 5
-
     - id: "arxiv-cs-ai"
       name: "arXiv cs.AI"
       url: "https://arxiv.org/rss/cs.AI"
-      max_age_days: 7
+      max_age_days: 5
 
-    - id: "microsoft-ai"
-      name: "Microsoft News - AI"
-      url: "https://news.microsoft.com/source/tag/ai/feed/"
-      max_age_days: 4
+    - id: "arxiv-cs-lg"
+      name: "arXiv cs.LG"
+      url: "https://arxiv.org/rss/cs.LG"
+      max_age_days: 5
 
-    - id: "mit-technology-review"
-      name: "MIT Technology Review"
-      url: "https://www.technologyreview.com/feed/"
-      max_age_days: 3
+    - id: "arxiv-stat-ml"
+      name: "arXiv stat.ML"
+      url: "https://arxiv.org/rss/stat.ML"
+      max_age_days: 5
 
-    - id: "register-ai-ml"
-      name: "The Register - AI/ML"
-      url: "https://www.theregister.com/software/ai_ml/headlines.atom"
-      max_age_days: 2
+    - id: "arxiv-cs-cl"
+      name: "arXiv cs.CL"
+      url: "https://arxiv.org/rss/cs.CL"
+      max_age_days: 5
+
+    - id: "arxiv-cs-cv"
+      name: "arXiv cs.CV"
+      url: "https://arxiv.org/rss/cs.CV"
+      max_age_days: 5
+
+    - id: "arxiv-cs-ro"
+      name: "arXiv cs.RO"
+      url: "https://arxiv.org/rss/cs.RO"
+      max_age_days: 5
 
 report:
   mode: "daily"
   display_mode: "keyword"
   sort_by_position_first: true
   rank_threshold: 5
-  max_news_per_keyword: 6
+  max_news_per_keyword: 5
 
 filter:
   method: "ai"
@@ -59,8 +64,8 @@ filter:
 ai_filter:
   batch_size: 200
   batch_interval: 2
-  min_score: 0.82
-  reclassify_threshold: 0.7
+  min_score: 0.86
+  reclassify_threshold: 0.72
   prompt_file: "prompt.txt"
   extract_prompt_file: "extract_prompt.txt"
   update_tags_prompt_file: "update_tags_prompt.txt"
@@ -161,7 +166,7 @@ ai_analysis:
   language: "Chinese"
   prompt_file: "ai_analysis_prompt.txt"
   mode: "daily"
-  max_news_for_analysis: 10
+  max_news_for_analysis: 14
   include_rss: true
   include_standalone: false
   include_rank_timeline: false
