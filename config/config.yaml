@@ -4,7 +4,7 @@ app:
 
 schedule:
   enabled: true
-  preset: "morning_evening"
+  preset: "custom"
 
 platforms:
   enabled: false
