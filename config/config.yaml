@@ -20,11 +20,6 @@ rss:
     enabled: true
     max_age_days: 4
   feeds:
-    - id: "arxiv-cs-ai"
-      name: "arXiv cs.AI"
-      url: "https://arxiv.org/rss/cs.AI"
-      max_age_days: 5
-
     - id: "arxiv-cs-lg"
       name: "arXiv cs.LG"
       url: "https://arxiv.org/rss/cs.LG"
@@ -35,14 +30,9 @@ rss:
       url: "https://arxiv.org/rss/stat.ML"
       max_age_days: 5
 
-    - id: "arxiv-cs-cl"
-      name: "arXiv cs.CL"
-      url: "https://arxiv.org/rss/cs.CL"
-      max_age_days: 5
-
-    - id: "arxiv-cs-cv"
-      name: "arXiv cs.CV"
-      url: "https://arxiv.org/rss/cs.CV"
+    - id: "arxiv-cs-ai"
+      name: "arXiv cs.AI"
+      url: "https://arxiv.org/rss/cs.AI"
       max_age_days: 5
 
     - id: "arxiv-cs-ro"
@@ -55,7 +45,7 @@ report:
   display_mode: "keyword"
   sort_by_position_first: true
   rank_threshold: 5
-  max_news_per_keyword: 5
+  max_news_per_keyword: 4
 
 filter:
   method: "ai"
@@ -64,8 +54,8 @@ filter:
 ai_filter:
   batch_size: 200
   batch_interval: 2
-  min_score: 0.86
-  reclassify_threshold: 0.72
+  min_score: 0.9
+  reclassify_threshold: 0.78
   prompt_file: "prompt.txt"
   extract_prompt_file: "extract_prompt.txt"
   update_tags_prompt_file: "update_tags_prompt.txt"
@@ -166,7 +156,7 @@ ai_analysis:
   language: "Chinese"
   prompt_file: "ai_analysis_prompt.txt"
   mode: "daily"
-  max_news_for_analysis: 14
+  max_news_for_analysis: 12
   include_rss: true
   include_standalone: false
   include_rank_timeline: false
